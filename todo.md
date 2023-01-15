@@ -3,7 +3,7 @@
 - [*] create next project
 - [*] config start project
 - [*] config stitches
-- [] create header component
+- [*] create header component
 - [] create main component
 - [] create ExplorerComponent
 - [] Create ExplorerComponent > Button
