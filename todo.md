@@ -10,19 +10,19 @@
 - [*] Create BannerImg as SVG
 - [*] Create Types
 - [*] Create States
-- [] Create OverlayComponent
-- [] Create ModalDestination
-- [] Create ListItem
-- [] Create CityDisplay
-- [] Create WeatherModal
+- [*] Create Load - Spinner
+- [*] Create OverlayComponent
+- [*] Create ModalDestination
+- [*] Create ListItem
+- [*] Create CityDisplay
+- [*] Create WeatherModal
+- [*] Input date min & max
 - [] Config axios
-- [] Create Load - Spinner
 - [] Create Dynamic Weather Icon
 - [] Config Next Loader for Wikipedia
 - [] Fix Modal Overlay and Position
 - [] Create favicon
 - [] Animation between transitions
-- [] Input date min & max
 - [] useMemo & useCallback
 - [] SSR?
 - [] refactory
