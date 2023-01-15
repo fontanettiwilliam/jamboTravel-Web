@@ -4,10 +4,12 @@
 - [*] config start project
 - [*] config stitches
 - [*] create header component
-- [] create main component
-- [] create ExplorerComponent
-- [] Create ExplorerComponent > Button
-- [] Create BannerImg as SVG
+- [*] create main component
+- [*] create ExplorerComponent
+- [*] Create ExplorerComponent > Button
+- [*] Create BannerImg as SVG
+- [*] Create Types
+- [*] Create States
 - [] Create OverlayComponent
 - [] Create ModalDestination
 - [] Create ListItem
