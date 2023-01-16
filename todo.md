@@ -21,9 +21,9 @@
 - [*] Create Dynamic Weather Icon
 - [*] Fix Modal Overlay and Position
 - [*] Create favicon
+- [] useMemo & useCallback
 - [] Config Next Loader for Wikipedia
 - [] Animation between transitions
-- [] useMemo & useCallback
 - [] SSR?
 - [] refactory
 - [] atomic design
