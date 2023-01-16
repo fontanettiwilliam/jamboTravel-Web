@@ -27,6 +27,8 @@ import { ICity, IWeather } from "@/types";
 import { Loader } from "@/components/Loader/Loader";
 import { apiGetCities } from "@/services/getCities";
 import { apiGetWeather } from "@/services/getWeather";
+import { apiGetWeatherByDate } from "@/services/getWeatherByDate";
+import { WeatherIcon } from "@/components/WeatherIcon/WeatherIcon";
 
 export default function Home() {
   //#region [STATES]
@@ -100,20 +102,29 @@ export default function Home() {
     setNewDate(event.target.value);
   }
 
-  function handleSubmitNewDate(event: FormEvent) {
+  async function handleSubmitNewDate(event: FormEvent) {
+    setIsLoading((prev) => !prev);
+
     event.preventDefault();
 
     if (newDate !== "") {
       setTripDate(newDate);
       setNewDate("");
     }
-    setIsLoading((prev) => !prev);
 
-    // TODO - fetch API
-    // const response = await fetch('http://localhost:3333/getWeatherByDate');
-    // const data = await response.json()
+    // TODO - Please read apiGetWeatherByDate for more information
+    if (city) {
+      const response = await apiGetWeatherByDate({
+        lat: city.lat,
+        long: city.long,
+        date: newDate,
+      });
+
+      setTripWeather(response);
+    }
 
     setModalWeather(false);
+
     setTimeout(() => {
       setIsLoading((prev) => !prev);
     }, 500);
@@ -196,7 +207,8 @@ export default function Home() {
 
                 {weather ? (
                   <DegreesDisplay>
-                    <Sun size={32} color="#FDBA33" weight="bold" />
+                    {/* <Sun size={32} color="#FDBA33" weight="bold" /> */}
+                    <WeatherIcon weather={weather.current.weather} />
                     <strong>{`${weather.current.temp}°`}</strong>
                     <span>{`Feels Like: ${weather.current.feelsLike}°`}</span>
                     <span>{`H: ${weather.current.max}°`}</span>

@@ -8,7 +8,6 @@ interface IModal {
   children: React.ReactNode;
 }
 
-// TODO - Fix modal position
 export function Modal({ title, visible, onClose, children }: IModal) {
   const handleClose = () => {
     onClose();

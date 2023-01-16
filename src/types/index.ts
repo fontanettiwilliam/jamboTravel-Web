@@ -36,3 +36,9 @@ export interface IGetWeather {
   lat: number;
   long: number;
 }
+
+export interface IGetWeatherByDate {
+  lat: number;
+  long: number;
+  date: string;
+}

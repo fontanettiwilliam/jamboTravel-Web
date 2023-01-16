@@ -18,10 +18,10 @@
 - [*] Create WeatherModal
 - [*] Input date min & max
 - [*] Config axios
-- [] Create Dynamic Weather Icon
+- [*] Create Dynamic Weather Icon
+- [*] Fix Modal Overlay and Position
+- [*] Create favicon
 - [] Config Next Loader for Wikipedia
-- [] Fix Modal Overlay and Position
-- [] Create favicon
 - [] Animation between transitions
 - [] useMemo & useCallback
 - [] SSR?

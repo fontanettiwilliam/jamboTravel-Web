@@ -5,7 +5,6 @@ interface ILoader {
   visible: boolean;
 }
 
-// TODO - Fix overlay position
 export function Loader({ visible }: ILoader) {
   return visible ? (
     <Overlay>

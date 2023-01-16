@@ -15,6 +15,8 @@ For the API see: [Jambo Travel API](https://github.com/fontanettiwilliam/jamboTr
 
 ## Getting Started
 
+**Before running, check if the axiox.ts file has the correct value for BaseUrl**
+
 First, run the development server:
 
 ```bash
@@ -31,8 +33,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## This project uses
 
-- A [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-- [`next/font`](https://nextjs.org/docs/basic-features/font-optimization).
+- A [Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- [next/font](https://nextjs.org/docs/basic-features/font-optimization).
 - [Stitches](https://stitches.dev/)
 - [Pacifico font](https://fonts.google.com/specimen/Pacifico)
 - [Quicksand font](https://fonts.google.com/specimen/Quicksand)
