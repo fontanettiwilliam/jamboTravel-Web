@@ -4,10 +4,13 @@
 
 # Jambo Travel
 
----
-
 <h3>Hello jambo team ;)</h3>
 <p>Welcome to the jambo travel project</p>
+
+## Figma
+
+You can access all of Figma's content by [clicking here](https://www.figma.com/file/VcnzpBRezVwIeFQdACq02B/Jambo-Travel?node-id=10%3A194&t=iKYsJTdHcDRdVS0D-1).
+Heads up! This is a preview link only!
 
 ## API
 
