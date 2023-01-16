@@ -1,4 +1,10 @@
+<h1 align="center">
+<img src="https://github.com/fontanettiwilliam/jamboTravel-Web/blob/main/src/assets/Thumbnail.png?raw=true" />
+</h1>
+
 # Jambo Travel
+
+---
 
 <h3>Hello jambo team ;)</h3>
 <p>Welcome to the jambo travel project</p>
@@ -6,12 +12,6 @@
 ## API
 
 For the API see: [Jambo Travel API](https://github.com/fontanettiwilliam/jamboTravel-API)
-
-### How the project looks
-
-<h1 align="center">
-<img src="https://github.com/fontanettiwilliam/jamboTravel-API/blob/main/src/assets/jamboTravel.gif?raw=true" />
-</h1>
 
 ## Getting Started
 
