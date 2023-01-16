@@ -19,13 +19,15 @@ export const Overlay = styled("div", {
 
 export const ModalBody = styled("div", {
   height: "50vh",
-  width: "50vw",
+  width: "60vw",
 
   backgroundColor: "$white",
   border: 0,
   borderRadius: 16,
 
   padding: 20,
+
+  overflowY: "scroll",
 });
 
 export const ModalHeader = styled("header", {

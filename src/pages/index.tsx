@@ -25,6 +25,8 @@ import { mockCities, mockWeather } from "@/mock";
 import { Sun } from "phosphor-react";
 import { ICity, IWeather } from "@/types";
 import { Loader } from "@/components/Loader/Loader";
+import { apiGetCities } from "@/services/getCities";
+import { apiGetWeather } from "@/services/getWeather";
 
 export default function Home() {
   //#region [STATES]
@@ -38,20 +40,17 @@ export default function Home() {
 
   const [modalDestination, setModalDestination] = useState(false);
   const [modalWeather, setModalWeather] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   //#endregion
 
   //#region [ON_PAGE_LOAD]
   const getCities = async () => {
-    setIsLoading((prev) => !prev);
-    // TODO - fetch api
-    // const response = await fetch('http://localhost:3333/getCities');
-    // const data = await response.json()
+    const response = await apiGetCities();
 
-    setCities(mockCities);
+    setCities(response);
 
     setTimeout(() => {
-      setIsLoading((prev) => !prev);
+      setIsLoading(false);
     }, 500);
   };
 
@@ -73,11 +72,11 @@ export default function Home() {
     setCity(value);
 
     setIsLoading((prev) => !prev);
-    // TODO - fetch API
-    // const response = await fetch('http://localhost:3333/getWeather');
-    // const data = await response.json()
 
-    setWeather(mockWeather);
+    const { lat, long } = value;
+    const response = await apiGetWeather({ lat, long });
+
+    setWeather(response);
     setModalDestination(false);
     setNewDate("");
     setTripDate("");

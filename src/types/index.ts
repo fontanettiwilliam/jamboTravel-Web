@@ -7,6 +7,10 @@ export interface ICity {
   long: number;
 }
 
+export interface ICitiesGet {
+  cities: ICity[];
+}
+
 export interface INextDay {
   weekDay: string;
   date: string;
@@ -26,4 +30,9 @@ export interface IWeather {
     weather: string;
   };
   nextDays: INextDay[];
+}
+
+export interface IGetWeather {
+  lat: number;
+  long: number;
 }

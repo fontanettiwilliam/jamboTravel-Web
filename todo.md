@@ -17,7 +17,7 @@
 - [*] Create CityDisplay
 - [*] Create WeatherModal
 - [*] Input date min & max
-- [] Config axios
+- [*] Config axios
 - [] Create Dynamic Weather Icon
 - [] Config Next Loader for Wikipedia
 - [] Fix Modal Overlay and Position
