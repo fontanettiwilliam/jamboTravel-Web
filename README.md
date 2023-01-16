@@ -7,6 +7,10 @@
 <h3>Hello jambo team ;)</h3>
 <p>Welcome to the jambo travel project</p>
 
+## Deploy on Vercel
+
+To see the published website, [click here](https://jambo-travel.vercel.app/)
+
 ## Figma
 
 You can access all of Figma's content by [clicking here](https://www.figma.com/file/VcnzpBRezVwIeFQdACq02B/Jambo-Travel?node-id=10%3A194&t=iKYsJTdHcDRdVS0D-1).
@@ -44,9 +48,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Phosphor Icons](https://phosphoricons.com/)
 - [date-fns](https://date-fns.org/)
 - [axios](https://axios-http.com/)
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

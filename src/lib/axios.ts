@@ -5,5 +5,5 @@ import axios from "axios";
  * * please change the base url
  */
 export const api = axios.create({
-  baseURL: "http://localhost:3333",
+  baseURL: "https://jambo-travel-api.onrender.com/",
 });
