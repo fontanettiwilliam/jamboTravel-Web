@@ -1,7 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { add, format } from "date-fns";
-import enCA from "date-fns/locale/en-CA";
-
 import banner from "@/assets/banner.svg";
 import { ListItem } from "@/components/ListItem/ListItem";
 import { Modal } from "@/components/Modal/Modal";
@@ -19,16 +16,15 @@ import {
 } from "@/styles/pages";
 import Head from "next/head";
 import Image from "next/image";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 
-import { mockCities, mockWeather } from "@/mock";
-import { Sun } from "phosphor-react";
-import { ICity, IWeather } from "@/types";
 import { Loader } from "@/components/Loader/Loader";
+import { WeatherIcon } from "@/components/WeatherIcon/WeatherIcon";
 import { apiGetCities } from "@/services/getCities";
 import { apiGetWeather } from "@/services/getWeather";
 import { apiGetWeatherByDate } from "@/services/getWeatherByDate";
-import { WeatherIcon } from "@/components/WeatherIcon/WeatherIcon";
+import { ICity, IWeather } from "@/types";
+import { formattedDateToCA, maxDaysFormatted, today } from "@/utils";
 
 export default function Home() {
   //#region [STATES]
@@ -135,30 +131,27 @@ export default function Home() {
   };
   //#endregion
 
-  //#region [INPUT_VALIDATION]
-  const today = format(new Date(), "Y'-'LL'-'d", {
-    locale: enCA,
-  });
+  //#region [CONST/MEMOIZED]
+  const canShowNextDaysWeather = useMemo(() => {
+    return !!weather && weather.nextDays.length > 0;
+  }, [weather]);
 
-  const maxDays = add(new Date(), {
-    days: 30,
-  });
+  const isNewDateEmpty = useMemo(() => {
+    return newDate.length === 0;
+  }, [newDate]);
 
-  const maxDaysFormatted = format(maxDays, "Y'-'LL'-'d", {
-    locale: enCA,
-  });
-  //#endregion
+  const isTripDateEmpty = useMemo(() => {
+    return tripDate.length === 0;
+  }, [tripDate]);
 
-  //#region [CONST]
-  const canShowNextDaysWeather = weather && weather.nextDays.length > 0;
-  const isNewDateEmpty = newDate.length === 0;
-  const isTripDateEmpty = tripDate.length === 0;
+  const formattedTripDate = useMemo(() => {
+    if (!isTripDateEmpty) {
+      return formattedDateToCA(tripDate);
+    }
+    return "";
+  }, [isTripDateEmpty, tripDate]);
 
-  const formattedTripDate = !isTripDateEmpty
-    ? format(new Date(tripDate), "'Forecast for 'LLLL d',' Y", {
-        locale: enCA,
-      })
-    : "";
+  const maxDay = maxDaysFormatted();
   //#endregion
 
   return (
@@ -205,14 +198,15 @@ export default function Home() {
               <CurrentWeather>
                 <strong>Current Weather</strong>
 
-                {weather ? (
+                {!!weather ? (
                   <DegreesDisplay>
-                    {/* <Sun size={32} color="#FDBA33" weight="bold" /> */}
                     <WeatherIcon weather={weather.current.weather} />
                     <strong>{`${weather.current.temp}°`}</strong>
-                    <span>{`Feels Like: ${weather.current.feelsLike}°`}</span>
-                    <span>{`H: ${weather.current.max}°`}</span>
-                    <span>{`L: ${weather.current.temp}°`}</span>
+                    <span>{`Feels Like: ${weather.current.feelsLike.toFixed(
+                      0
+                    )}°`}</span>
+                    <span>{`H: ${weather.current.max.toFixed(0)}°`}</span>
+                    <span>{`L: ${weather.current.temp.toFixed(0)}°`}</span>
                   </DegreesDisplay>
                 ) : (
                   <></>
@@ -234,18 +228,26 @@ export default function Home() {
               {canShowNextDaysWeather && (
                 <DailyWeatherContainer>
                   {!tripWeather
-                    ? weather.nextDays.map((daily) => (
+                    ? weather?.nextDays.map((daily) => (
                         <DailyWeatherDisplay key={daily.weekDay}>
                           <span className="dailyWeather">{daily.weekDay}</span>
-                          <span className="dailyWeather">{`H: ${daily.max}°`}</span>
-                          <span className="dailyWeather">{`L: ${daily.min}°`}</span>
+                          <span className="dailyWeather">{`H: ${daily.max.toFixed(
+                            0
+                          )}°`}</span>
+                          <span className="dailyWeather">{`L: ${daily.min.toFixed(
+                            0
+                          )}°`}</span>
                         </DailyWeatherDisplay>
                       ))
                     : tripWeather.nextDays.map((daily) => (
                         <DailyWeatherDisplay key={daily.weekDay}>
                           <span className="dailyWeather">{daily.weekDay}</span>
-                          <span className="dailyWeather">{`H: ${daily.max}°`}</span>
-                          <span className="dailyWeather">{`L: ${daily.min}°`}</span>
+                          <span className="dailyWeather">{`H: ${daily.max.toFixed(
+                            0
+                          )}°`}</span>
+                          <span className="dailyWeather">{`L: ${daily.min.toFixed(
+                            0
+                          )}°`}</span>
                         </DailyWeatherDisplay>
                       ))}
 
@@ -298,7 +300,7 @@ export default function Home() {
               value={newDate}
               onChange={handleChangeNewDate}
               min={today}
-              max={maxDaysFormatted}
+              max={maxDay}
               required
             />
 

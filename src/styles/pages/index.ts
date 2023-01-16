@@ -162,7 +162,7 @@ export const DegreesDisplay = styled("div", {
 
   span: {
     fontWeight: 500,
-    fontSize: 20,
+    fontSize: 28,
     color: "$white",
   },
 });
@@ -219,7 +219,7 @@ export const DailyWeatherDisplay = styled("div", {
 
   ".dailyWeather": {
     fontWeight: 500,
-    fontSize: 16,
+    fontSize: 20,
     color: "$black",
   },
 });
